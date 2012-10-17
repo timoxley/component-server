@@ -1,18 +1,28 @@
 {
   "name": "component-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serve components from your local filesystem",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
-  "author": "",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timoxley/component-server.git"
+  },
+  "author": "Tim Oxley",
+  "license": "BSD",
   "preferGlobal": true,
+  "bin": {
+    "component-server": "./bin/component-server"
+  },
   "dependencies": {
     "express": "~3.0.0rc5",
     "commander": "~1.0.5",
     "send": "~0.1.0"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {}
 }
