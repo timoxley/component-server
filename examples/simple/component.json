@@ -1,0 +1,11 @@
+{
+  "name": "example",
+  "repo": "timoxley/404",
+  "description": "Example of serving local component",
+  "version": "0.0.1",
+  "remotes": ["http://localhost:3939"],
+  "dependencies": {
+    "local/object": "*"
+  },
+  "development": {}
+}

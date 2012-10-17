@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+var express = require('express')
+var join = require('path').join
+var send = require('send')
+
+program
+  .version('0.0.1')
+  .option('-p, --port <port>', 'specify the port [3939]', Number, 3939)
+  .option('-d, --dir <directory>', 'specify the component dir relative to cwd [components.local]', String, 'components.local')
+  .option('-n, --namespace <namespace>', 'serve local components under this namespace [local]', String, 'local')
+  .option('-v, --verbose', 'output component server connection logs', Boolean,  true)
+  .parse(process.argv)
+
+var dir = join(process.cwd(), program.dir)
+
+var server = express()
+
+program.verbose && server.use(express.logger())
+
+server.get('/'+program.namespace+'/:component/master/:file', function(req, res) {
+  send(req, req.params.file)
+  .from(join(dir, req.params.component))
+  .pipe(res);
+})
+
+// start the server
+server.listen(program.port, function() {
+  console.log('\033[90mserving local components from \033[36m%s\033[90m on port \033[96m%d\033[0m', program.dir, program.port)
+})
