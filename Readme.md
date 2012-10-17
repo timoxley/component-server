@@ -52,16 +52,17 @@ Run component installation fro your project (in a new terminal)
 Your local component is now installed and ready to be built!
 
 ## Usage
+From `component-server --help`
 
-		$ component-server --help
+```
+Usage: component-server [options]
 
-			Usage: component-server [options]
+Options:
 
-			Options:
-
-				-h, --help                   output usage information
-				-V, --version                output the version number
-				-p, --port <port>            specify the port [3939]
-				-d, --dir <directory>        specify the component dir relative to cwd [components.local]
-				-n, --namespace <namespace>  serve local components under this namespace [local]
-				-v, --verbose                output component server connection logs
+	-h, --help                   output usage information
+	-V, --version                output the version number
+	-p, --port <port>            specify the port [3939]
+	-d, --dir <directory>        specify the component dir relative to cwd [components.local]
+	-n, --namespace <namespace>  serve local components under this namespace [local]
+	-v, --verbose                output component server connection logs
+```
